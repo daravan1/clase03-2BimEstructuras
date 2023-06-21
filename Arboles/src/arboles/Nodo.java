@@ -9,28 +9,38 @@ package arboles;
  * @author UTPL
  */
 public class Nodo {
+
     int dato;
-    Nodo sig;
+    Nodo izq;
+    Nodo der;
 
     public Nodo(int d) {
         this.dato = d;
-        Nodo sig;
+        this.izq = null;
+        this.der = null;
     }
 
     public void establecerDato(int dato) {
         this.dato = dato;
     }
 
-    public void establecerSig(Nodo sig) {
-        this.sig = sig;
+    public void establecerIzq(Nodo izq) {
+        izq = null;
+    }
+
+    public void establecerDer(Nodo der) {
+        der = null;
     }
 
     public int obtenerDato() {
         return dato;
     }
 
-    public Nodo obtenerSig() {
-        return sig;
+    public Nodo obtenerIzq() {
+        return izq;
+    }
+    public Nodo obtenerDer() {
+        return der;
     }
 }
-
+ 
