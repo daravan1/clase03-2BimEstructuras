@@ -18,22 +18,25 @@ public class Arbol_Binario {
         do {
             op = myArbol.menu();
             switch (op) {
-                case 1:
+                case 1 ->{
                     System.out.println("Valor a insertar:");
                     num = myArbol.entrada.nextInt();
                     myArbol.raiz = myArbol.insertar(num, myArbol.raiz);
-                    break;
-                case 2:
+                }
+                case 2 ->{
                     myArbol.preOrden(myArbol.raiz);
                     System.out.println("");
                     myArbol.inOrden(myArbol.raiz);
                     System.out.println("");
                     myArbol.postOrden(myArbol.raiz);
                     System.out.println("");
-                    break;
+                        }
 
-                /*case 3:
-                    myArbol.eliminar();*/
+                case 3 ->{
+                    System.out.println("Valor a eliminar: ");
+                    num = myArbol.entrada.nextInt();
+                    myArbol.raiz = myArbol.eliminar(num, myArbol.raiz);
+                }
             }
         } while (op != 0);
     }

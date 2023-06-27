@@ -48,7 +48,6 @@ public class Metodos_ab {
 
     public void preOrden(Nodo actual) {
         if (actual != null) {
-            System.out.println(actual.dato + "");
             preOrden(actual.izq);
             preOrden(actual.der);
         }
@@ -57,7 +56,7 @@ public class Metodos_ab {
     public void inOrden(Nodo actual) {
         if (actual != null) {
             inOrden(actual.izq);
-            System.out.println(actual.dato + " ");
+            System.out.print(actual.dato + " ");
             inOrden(actual.der);
 
         }
@@ -67,7 +66,47 @@ public class Metodos_ab {
         if (actual != null) {
             postOrden(actual.izq);
             postOrden(actual.der);
-            System.out.println(actual.dato + " ");
+            System.out.print(actual.dato + " ");
         }
+    }
+    
+    public int reemplazar(Nodo actual){
+        Nodo a = actual.izq;
+        Nodo p = actual;
+        int valor;
+        
+        while(a.der != null){
+            p =a;
+            a = a.der;
+        }
+        valor = a.dato;
+        if (p  == actual) {
+            p.izq = a.izq;
+        }else{
+            p.der = a.izq;
+        }
+        
+        return valor;
+    }
+    
+    public Nodo eliminar(int num, Nodo actual){
+        if (actual == null) {
+            System.out.println("El elemento no existe en el arbol");
+        }else if(num > actual.dato){
+            actual.der = eliminar(num, actual.der);
+        }else if (num < actual.dato){
+            actual.izq = eliminar(num, actual.izq);
+        }else{
+            Nodo aux =actual;
+            if (aux.izq == null) { //if (arbolVacia(aux.izq))
+                return aux.der;
+            }
+            else if (aux.der == null) {
+                return aux.izq;
+            }else{
+                aux.dato = reemplazar(aux);
+            }
+        }
+        return actual;
     }
 }
